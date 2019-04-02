@@ -1,0 +1,8 @@
+name: Backuper
+version: 0.1
+main: me.igamblenull.backuper.Main
+api-version: 1.8.8
+commands:
+  backup:
+    usage: /backup
+    description: Use /backup to show the help page.

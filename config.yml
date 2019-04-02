@@ -1,0 +1,5 @@
+settings:
+  backup:
+    send_message: true
+    send_message_only_admin: true
+    message: Started backup
