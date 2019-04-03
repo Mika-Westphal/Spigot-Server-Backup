@@ -1,16 +1,18 @@
 package me.igamblenull.backuper;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.igamblenull.backuper.commands.BackupCommand;
+import me.igamblenull.backuper.commands.modules.HelpModule;
 
 public class Main extends JavaPlugin {
 	
+	public HelpModule help;
+	
 	public void onEnable() {
-		System.out.println("&a[Backuper " + Bukkit.getVersion() + "]&r enabled!");
 		registerCommands();
 		registerEvents();
+		setupHelp();
 	}
 	
 	private void registerCommands() {
@@ -20,6 +22,13 @@ public class Main extends JavaPlugin {
 	
 	private void registerEvents() {
 		
+	}
+	
+	private void setupHelp() {
+		help = new HelpModule(null);
+		help.addHelpPage("/backup - Shows this page!",
+						 "/backup start - Starts an new backup",
+						 "/backup list - Shows a list with all Backups");
 	}
 	
 }

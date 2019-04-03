@@ -13,18 +13,16 @@ public class HelpModule {
 	
 	public HelpModule(CommandSender sender) {
 		this.sender = sender;
-		setupList();
 	}
 	
-	private void setupList() {
-		if(getIndexCount() == 0) {
-			addHelpPage("Hi");
-			addHelpPage("No");
+	public void setHelpPage(List<String> helpList) {
+		commandPage = helpList;
+	}
+	
+	public void addHelpPage(String... entrysToAdd) {
+		for(String line : entrysToAdd) {
+			commandPage.add(line);
 		}
-	}
-	
-	public void addHelpPage(String entryToAdd) {
-		commandPage.add(entryToAdd);
 	}
 	
 	public void clearHelpPage() {
@@ -35,6 +33,10 @@ public class HelpModule {
 		for(String helpString : commandPage) {
 			sender.sendMessage(helpString);
 		}
+	}
+	
+	public void setCommandSender(CommandSender sender) {
+		this.sender = sender;
 	}
 	
 	public boolean removeHelpPage(String entryToRemove) {
@@ -61,6 +63,10 @@ public class HelpModule {
 	
 	public boolean containsHelpPage(String contains) {
 		return commandPage.contains(contains);
+	}
+	
+	public List<String> getHelpPage() {
+		return commandPage;
 	}
 	
 	@SuppressWarnings("unused")
